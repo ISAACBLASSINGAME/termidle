@@ -1,0 +1,4 @@
+Int reset:
+jq 'walk(if type == "number" then 0 else . end)' stats.json > temp.json && mv temp.json stats.json
+Full reset:
+jq 'walk(if type == "number" then 0 elif type == "string" then "" elif type == "array" then [] else . end)' stats.json > temp.json && mv temp.json stats.json
