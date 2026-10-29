@@ -8,8 +8,6 @@ def main ():
 
     with open("word_list.txt", "r") as f:
         words = f.read().upper().splitlines()
-    
-
 
     def save_stats(stats):
         with open("stats.JSON", "w") as f:

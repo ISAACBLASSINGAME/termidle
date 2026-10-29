@@ -1,8 +1,6 @@
 {
-    "Total_wins": 1,
+    "Total_wins": 0,
     "Total_losses": 0,
-    "Games_played": 1,
-    "past_words": [
-        "FERAL"
-    ]
+    "Games_played": 0,
+    "past_words": []
 }
