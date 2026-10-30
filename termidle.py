@@ -72,35 +72,39 @@ def main():
         
         while win or count<6:
             guess = input(f"{attempt[count]} guess: ").upper()
-            while len(guess) != 5 or guess not in words:
+            while (len(guess) != 5 or guess not in words) and guess.lower() != "end":
                 print("Try again. Guess must be a real 5-letter word.")
                 guess = input(f"{attempt[count]} guess: ").upper()
-            guesses.append(guess)
-            current_display[count] = guess_check(guess,answer)
-            clear_screen()
-            print(*current_display, sep="\n")
-            line()
-            if guess == answer:
-                print("You win!")
-                print(f"The correct word was {answer.capitalize()}!")
-                stats["Total_wins"] +=1
-                stats["number_of_guesses"].append(count+1)
-                if save:
-                    save_stats(stats)
-                    display_stats()
-                play_again()
-                count = 6
-            elif count==5:
-                print(f"You lost!\nThe word was {answer.capitalize()}.")
-                stats["Total_losses"]+=1
-                stats["number_of_guesses"].append(6)
-                if save:
-                    save_stats(stats)
-                    display_stats()
-                play_again()
-                count+=1
+            if guess.lower() != "end":
+                guesses.append(guess)
+                current_display[count] = guess_check(guess,answer)
+                clear_screen()
+                print(*current_display, sep="\n")
+                line()
+                if guess == answer:
+                    print("You win!")
+                    print(f"The correct word was {answer.capitalize()}!")
+                    stats["Total_wins"] +=1
+                    stats["number_of_guesses"].append(count+1)
+                    if save:
+                        save_stats(stats)
+                        display_stats()
+                    play_again()
+                    count = 6
+                elif count==5:
+                    print(f"You lost!\nThe word was {answer.capitalize()}.")
+                    stats["Total_losses"]+=1
+                    stats["number_of_guesses"].append(6)
+                    if save:
+                        save_stats(stats)
+                        display_stats()
+                    play_again()
+                    count+=1
+                else:
+                    count +=1 
             else:
-                count +=1 
+                print("Exiting game")
+                count = 6
     game()
         
 main()
