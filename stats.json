@@ -1,6 +1,10 @@
 {
-  "Total_wins": 0,
-  "Total_losses": 0,
-  "Games_played": 0,
-  "past_words": []
+    "Total_wins": 2,
+    "Total_losses": 1,
+    "Games_played": 3,
+    "past_words": [
+        "CLERK",
+        "CRUST",
+        "BLOWN"
+    ]
 }
