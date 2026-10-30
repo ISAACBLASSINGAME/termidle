@@ -19,6 +19,7 @@ acute
 adage
 adapt
 adept
+adieu
 admin
 admit
 adobe
@@ -1320,6 +1321,7 @@ nutty
 nylon
 nymph
 oaken
+oasis
 obese
 occur
 ocean
