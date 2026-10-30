@@ -2,5 +2,6 @@
   "Total_wins": 0,
   "Total_losses": 0,
   "Games_played": 0,
-  "past_words": []
+  "past_words": [],
+  "number_of_guesses": []
 }

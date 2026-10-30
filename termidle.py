@@ -1,4 +1,4 @@
-import os,random,json
+import os,random,json,statistics
 from colorama import init, Fore, Back, Style
 init(autoreset=True)
 def main ():
@@ -22,6 +22,7 @@ def main ():
     def initialize(words):
         words = list(set(words)-set(stats["past_words"]))
         random_word = random.choice(words)
+        print(random_word)
         clear_screen()
         for i in range(6):
             print("[ ][ ][ ][ ][ ]")
@@ -58,15 +59,18 @@ def main ():
     def display_stats():
         wins = stats["Total_wins"]
         total_games = stats["Games_played"]
+        average_guesses = statistics.mean(stats["number_of_guesses"])
         line()
         print(Style.BRIGHT+"Stats")
         print(f"Total wins: {wins}")
         rate = (wins/total_games)*100
         print(f"Win rate: {rate:.0f}%")
+        print(f"Average guesses: {average_guesses:.2f}")
         line()
         
     save = input("Do you want to save stats?: ").lower() in ["yes","y",""]
     while win or count<6:
+        print(count)
         guess = input(f"{attempt[count]} guess: ").upper()
         while len(guess) != 5 or guess not in words:
             print("Try again. Guess must be a real 5-letter word.")
@@ -80,6 +84,7 @@ def main ():
             print("You win!")
             print(f"The correct word was {answer.capitalize()}!")
             stats["Total_wins"] +=1
+            stats["number_of_guesses"].append(count+1)
             if save:
                 save_stats(stats)
                 display_stats()
@@ -88,6 +93,7 @@ def main ():
         elif count==5:
             print(f"You lost!\nThe word was {answer.capitalize()}.")
             stats["Total_losses"]+=1
+            stats["number_of_guesses"].append(6)
             if save:
                 save_stats(stats)
                 display_stats()
