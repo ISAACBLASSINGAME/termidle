@@ -22,7 +22,6 @@ def main ():
     def initialize(words):
         words = list(set(words)-set(stats["past_words"]))
         random_word = random.choice(words)
-        print(random_word)
         clear_screen()
         for i in range(6):
             print("[ ][ ][ ][ ][ ]")
@@ -70,7 +69,6 @@ def main ():
         
     save = input("Do you want to save stats?: ").lower() in ["yes","y",""]
     while win or count<6:
-        print(count)
         guess = input(f"{attempt[count]} guess: ").upper()
         while len(guess) != 5 or guess not in words:
             print("Try again. Guess must be a real 5-letter word.")
