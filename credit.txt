@@ -1,0 +1,1 @@
+Credit to https://gist.github.com/cfreshman for Wordle words list.
