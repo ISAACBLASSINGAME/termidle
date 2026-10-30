@@ -103,6 +103,7 @@ def main():
                 else:
                     count +=1 
             else:
+                print(f"The word was {answer.capitalize()}.")
                 print("Exiting game")
                 count = 6
     game()
