@@ -17,7 +17,7 @@ def main ():
         os.system("cls" if os.name == "nt" else "clear")
 
     def line():
-            print(Style.BRIGHT+"--------------------")
+            print(Style.BRIGHT+"-----------------------------------")
 
     def initialize(words):
         words = list(set(words)-set(stats["past_words"]))
