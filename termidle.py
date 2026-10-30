@@ -105,6 +105,9 @@ def main():
             else:
                 print(f"The word was {answer.capitalize()}.")
                 print("Exiting game")
+                if save:
+                    stats["Total_losses"]+=1
+                    save_stats(stats)
                 count = 6
     game()
         
