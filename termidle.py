@@ -65,7 +65,7 @@ def main ():
         print(f"Win rate: {rate:.0f}%")
         line()
         
-
+    save = input("Do you want to save stats?: ").lower() in ["yes","y",""]
     while win or count<6:
         guess = input(f"{attempt[count]} guess: ").upper()
         while len(guess) != 5 or guess not in words:
@@ -80,16 +80,17 @@ def main ():
             print("You win!")
             print(f"The correct word was {answer.capitalize()}!")
             stats["Total_wins"] +=1
-            if input("Do you want to save stats?: ").lower() in ["yes","y",""]:
+            if save:
                 save_stats(stats)
-            display_stats()
+                display_stats()
             play_again()
             count = 6
         elif count==5:
             print(f"You lost!\nThe word was {answer.capitalize()}.")
             stats["Total_losses"]+=1
-            save_stats(stats)
-            display_stats()
+            if save:
+                save_stats(stats)
+                display_stats()
             play_again()
             count+=1
         else:
