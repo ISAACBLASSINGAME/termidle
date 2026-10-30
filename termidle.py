@@ -2,7 +2,7 @@ import os,random,json
 from colorama import init, Fore, Back, Style
 init(autoreset=True)
 def main ():
-    #goy
+    
     with open("stats.JSON", "r") as f:
         stats = json.load(f)
 
