@@ -80,7 +80,8 @@ def main ():
             print("You win!")
             print(f"The correct word was {answer.capitalize()}!")
             stats["Total_wins"] +=1
-            save_stats(stats)
+            if input("Do you want to save stats?: ").lower() in ["yes","y",""]:
+                save_stats(stats)
             display_stats()
             play_again()
             count = 6
